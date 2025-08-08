@@ -8,13 +8,22 @@
         
         <title>a website that &#10042; you just stare at</title>
 
-        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="./style.css">
         <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-        <script src="script.js"></script>
+        <script src="./script.js"></script>
     </head>
 
     <body>
-        
+            <div id="inputs">
+                <div id="status">Waiting for camera permission...</div>
+                <div id="instructions" style="display: none;">stay still & stare<br>or move and see what happens...</div>
+                <video id="webcam" autoplay playsinline style="display: none;"></video>
+                <canvas id="processing-canvas" style="display: none;"></canvas>
+            </div>
+
+            <div id="blur-content">
+                <img src="./red-house.jpeg">
+            </div>
     </body>
-    
+
 </html>
