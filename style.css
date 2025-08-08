@@ -36,7 +36,7 @@ h3 {
     text-decoration: none;
 }
 
-.prompt:hover {
+.prompt a:hover {
     cursor: hand;
     color: #0000ff;
 }
