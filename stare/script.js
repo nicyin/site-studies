@@ -94,8 +94,11 @@ function startDetection() {
 
         if (hasMovement) {
             stillnessDuration = 0;
-            $content.css('filter', 'blur(0px)');
-            $('#instructions').text(`don't move, just look`);
+            $content.css({
+                'transition': 'filter 0.1s ease',
+                'filter': 'blur(0px)'
+            });
+            $('#instructions').text(`hold still & stare`);
             // Set a flag to prevent immediate text change
             window.lastMovement = Date.now();
         } else {
