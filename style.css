@@ -1,0 +1,46 @@
+body {
+    font-family: monospace;
+    max-width: 50%;
+    margin: 0 auto;
+    padding: 20px;
+    line-height: 1.6;
+}
+
+h1 {
+    font-size: 2em;
+}
+
+h3 {
+    font-size: .5em;
+    text-transform: uppercase;
+    padding-bottom: 20px;
+}
+
+.star {
+    font-size: 4em;
+    padding: 20px;
+    text-align: center;
+}
+
+@keyframes rotateAnimation {
+  0% {
+    transform: rotate(0deg); /* Start at 0 degrees rotation */
+  }
+  100% {
+    transform: rotate(360deg); /* End at 360 degrees rotation for a full spin */
+  }
+}
+
+.prompt:hover {
+    cursor: hand;
+}
+
+#table-of-contents {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#table-of-contents td {
+    border: 1px dashed rgb(73, 73, 73);
+    padding: 10px;
+}
