@@ -31,8 +31,14 @@ h3 {
   }
 }
 
+.prompt a {
+    color: #000000;
+    text-decoration: none;
+}
+
 .prompt:hover {
     cursor: hand;
+    color: #0000ff;
 }
 
 #table-of-contents {
