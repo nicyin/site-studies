@@ -1,6 +1,6 @@
 @media all and (max-width: 768px) {
-    body{
-      width: 95%;
+    body {
+        max-width: 95%;
     }
 }
 
