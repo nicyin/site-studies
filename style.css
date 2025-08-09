@@ -1,12 +1,6 @@
-@media all and (max-width: 768px) {
-    body {
-        max-width: 95%;
-    }
-}
-
 body {
     font-family: monospace;
-    max-width: 50%;
+    width: 50%;
     margin: 0 auto;
     padding: 20px;
     line-height: 1.6;
@@ -55,4 +49,26 @@ h3 {
 #table-of-contents td {
     border: 1px dashed rgb(73, 73, 73);
     padding: 10px;
+}
+
+@media all and (max-width: 1024px) {
+    body {
+        width: 80%;
+        padding: 10px;
+        margin: 0 auto;
+    }
+}
+
+@media all and (max-width: 480px) {
+    html, body {
+        width: 85%;
+        max-width: 85%;
+        padding: 0;
+        margin: 0 auto;
+    }
+    
+    #table-of-contents {
+        width: 100%;
+        padding: 10px;
+    }
 }
