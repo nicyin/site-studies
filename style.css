@@ -63,7 +63,7 @@ h3 {
     html, body {
         width: 85%;
         max-width: 85%;
-        padding: 0;
+        padding: 10px;
         margin: 0 auto;
     }
     
