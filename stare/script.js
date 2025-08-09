@@ -111,7 +111,7 @@ function startDetection() {
                 
                 // Check if maximum blur reached
                 if (blur >= MAX_BLUR) {
-                    $('#instructions').text('congrats');
+                    $('#instructions').text('the end');
                     // You could add more effects here, like:
                     // $content.fadeOut(3000); // Slowly fade out the image
                     // or
