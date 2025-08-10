@@ -9,6 +9,10 @@
 
         <link rel="stylesheet" href="together/style.css">
         <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Sono:wght@200..800&display=swap" rel="stylesheet">
         
         <!-- Firebase SDK -->
         <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
@@ -18,15 +22,17 @@
     </head>
     <body>
         <div id="online-counter">
-            Users online: <span id="count">0</span>
+            People online: <span id="count">0</span>
         </div>
 
         <div id="alone">
-            You're here alone.
+            Invite a friend to join you.
+            <p><button id="enter" disabled>Enter</button></p>
         </div>
 
         <div id="together">
-            You're here with someone.
+            You found someone!
+            <p><button id="enter">Enter</button></p>
         </div>
     </body>
 </html>

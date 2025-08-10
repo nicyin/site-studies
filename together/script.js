@@ -45,9 +45,11 @@ $(document).ready(() => {
         if (numUsersOnline > 1) {
             $('#alone').hide();
             $('#together').show();
+            $('#enter').prop('disabled', false);  // Enable the button
         } else {
             $('#alone').show();
             $('#together').hide();
+            $('#enter').prop('disabled', true);   // Disable the button
         }
     });
 });
