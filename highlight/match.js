@@ -1,6 +1,7 @@
 $(document).ready(function() {
     const $passage = $('.passage');
     let isSelecting = false;
+    let isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
     
     // Split into words and preserve spaces/punctuation
     function processNode(node) {
@@ -26,8 +27,11 @@ $(document).ready(function() {
         processNode(this);
     });
 
-    // When starting selection
-    $(document).on('mousedown', '.passage', function() {
+    // Handle selection start
+    $(document).on('mousedown touchstart', '.passage', function(e) {
+        if (e.type === 'touchstart') {
+            e.preventDefault(); // Prevent zoom on double-tap
+        }
         isSelecting = true;
         $passage.addClass('selecting');
     });
@@ -56,8 +60,8 @@ $(document).ready(function() {
         }
     });
 
-    // When ending selection
-    $(document).on('mouseup', function() {
+    // Handle selection end
+    $(document).on('mouseup touchend', function(e) {
         if (!isSelecting) return;
         isSelecting = false;
         $passage.removeClass('selecting');
@@ -76,10 +80,19 @@ $(document).ready(function() {
                 }
             });
             
-            if (!hasAnyMatches) {
-                // If no matches found for any word, clear the selection
+            if (!hasAnyMatches && !isMobile) {
+                // Only clear selection on desktop - keep it on mobile for better UX
                 selection.removeAllRanges();
             }
         }
     });
+
+    // Handle touch move to prevent page scrolling while selecting
+    if (isMobile) {
+        $(document).on('touchmove', '.passage', function(e) {
+            if (isSelecting) {
+                e.preventDefault();
+            }
+        });
+    }
 });
