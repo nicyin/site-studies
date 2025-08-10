@@ -52,4 +52,11 @@ $(document).ready(() => {
             $('#enter').prop('disabled', true);   // Disable the button
         }
     });
+
+    $(document).on('click', '#enter', function() {
+        console.log('enter clicked');
+        
+        $('#together').hide();
+        $('#hangout').show();
+    });
 });

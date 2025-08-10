@@ -11,7 +11,7 @@
     font-size: 0.8em;
 }
 
-#alone, #together {
+#alone, #together, #hangout {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -25,6 +25,14 @@
 /* Set initial states */
 #together {
     display: none;
+}
+
+#hangout {
+    display: none;
+}
+
+#tea {
+    font-size: 2em;
 }
 
 #enter:disabled {
@@ -42,8 +50,8 @@
 #enter:enabled {
     border-radius: 50px;
     padding: 10px 20px;
-    background-color: #0000ff;
-    color: #ffffff;
+    background-color: #f7cd4e;
+    color: #000000;
     font-family: 'Sono', monospace;
     font-weight: 300;
     font-size: 2em;
