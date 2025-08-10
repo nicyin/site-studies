@@ -9,9 +9,24 @@
 
         <link rel="stylesheet" href="together/style.css">
         <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+        
+        <!-- Firebase SDK -->
+        <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-database-compat.js"></script>
+        
         <script src="together/script.js"></script>
     </head>
     <body>
-        
+        <div id="online-counter">
+            Users online: <span id="count">0</span>
+        </div>
+
+        <div id="alone">
+            You're here alone.
+        </div>
+
+        <div id="together">
+            You're here with someone.
+        </div>
     </body>
 </html>
