@@ -18,9 +18,9 @@ h3 {
 
 .star {
     font-size: 4em;
-    padding: 20px;
+    padding: 5px;
     text-align: center;
-    line-height: 1;
+    line-height: 0.5;
 }
 
 @keyframes rotateAnimation {
