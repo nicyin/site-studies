@@ -20,6 +20,7 @@ h3 {
     font-size: 4em;
     padding: 20px;
     text-align: center;
+    line-height: 1;
 }
 
 @keyframes rotateAnimation {
@@ -47,7 +48,7 @@ h3 {
 }
 
 #table-of-contents td {
-    border: 1px dashed rgb(73, 73, 73);
+    border: 0px dashed rgb(73, 73, 73);
     padding: 10px;
 }
 
