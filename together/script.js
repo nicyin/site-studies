@@ -49,6 +49,7 @@ $(document).ready(() => {
         } else {
             $('#alone').show();
             $('#together').hide();
+            $('#hangout').hide();
             $('#enter').prop('disabled', true);   // Disable the button
         }
     });
