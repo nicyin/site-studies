@@ -8,12 +8,14 @@ body {
 
 h1 {
     font-size: 2em;
+    font-weight: 400;
 }
 
 h3 {
     font-size: .8em;
     text-transform: uppercase;
     padding-bottom: 20px;
+    font-weight: 400;
 }
 
 .star {
