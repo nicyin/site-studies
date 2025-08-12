@@ -11,7 +11,7 @@ class AudioProcessor {
         this.microphone = null;
         this.isInitialized = false;
         this.silenceTimeout = null;
-        this.SILENCE_THRESHOLD = 50;
+        this.SILENCE_THRESHOLD = 20;
         this.SILENCE_DURATION = 5000; 
     }
 
