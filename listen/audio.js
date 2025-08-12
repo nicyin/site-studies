@@ -11,7 +11,7 @@ class AudioProcessor {
         this.microphone = null;
         this.isInitialized = false;
         this.silenceTimeout = null;
-        this.SILENCE_THRESHOLD = 20;
+        this.SILENCE_THRESHOLD = 30;
         this.SILENCE_DURATION = 5000; 
     }
 
@@ -90,22 +90,6 @@ class AudioProcessor {
                     this.silenceTimeout = setTimeout(() => {
                         window.dispatchEvent(new CustomEvent('silence'));
                         this.silenceTimeout = null;
-                        // Stop monitoring and cleanup
-                        cancelAnimationFrame(animationFrame);
-                        this.cleanup();
-                        // Show start overlay again
-                        setTimeout(() => {
-                            const startOverlay = document.getElementById('start-overlay');
-                            const bubbleContainer = document.getElementById('bubble-container');
-                            
-                            if (startOverlay) startOverlay.style.display = 'flex';
-                            if (bubbleContainer) bubbleContainer.style.display = 'none';
-                            
-                            // Reset the hasStarted flag
-                            hasStarted = false;
-                            // Dispatch event to reset bubble animation
-                            window.dispatchEvent(new CustomEvent('bubbleReset'));
-                        }, 1000); // Wait for pop animation to complete
                     }, this.SILENCE_DURATION);
                 }
             } else {
@@ -136,10 +120,10 @@ document.addEventListener('DOMContentLoaded', () => {
         const success = await processor.initialize();
         
         if (success) {
-            // Reset bubble state before showing
-            window.bubbleAnim.resetBubble();
             startOverlay.style.display = 'none';
             bubbleContainer.style.display = 'flex';
+            // Create initial bubble
+            window.bubbleAnim.createBubble();
         } else {
             alert('Could not access microphone. Please ensure you have given permission and reload the page.');
         }

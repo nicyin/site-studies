@@ -5,7 +5,8 @@ body {
     align-items: center;
     min-height: 100vh;
     background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, Arial, Helvetica, sans-serif;
+    font-family: monospace;
+    font-size: 12px;
 }
 
 #start-overlay {
@@ -33,27 +34,18 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    overflow: hidden;
 }
 
-#bubble {
-    width: 200px;
-    height: 200px;
+.bubble {
+    width: 100px;
+    height: 100px;
     border-radius: 50%;
     background: linear-gradient(135deg, #FFFED1, #DEFFE5, #EADEFF, #E3E3E3);
-    transition: transform 0.1s ease-out, opacity 0.1s ease-out, filter 0.1s ease-out;
-    transform-origin: center;
-    position: relative;
-}
-
-.bubble-particle {
     position: absolute;
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    background: linear-gradient(135deg, #FFFED1, #DEFFE5, #EADEFF);
     pointer-events: none;
-    transition: transform 0.05s linear, opacity 0.05s linear;
+    will-change: transform, opacity;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+    transition: opacity 0.3s ease-out;
+    transform-origin: center center;
 }
