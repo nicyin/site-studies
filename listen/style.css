@@ -1,0 +1,59 @@
+body {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+#start-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    z-index: 1000;
+}
+
+.start-text {
+    font-size: 1.2em;
+    color: rgba(0, 0, 0, 0.5);
+    font-weight: 300;
+}
+
+#bubble-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#bubble {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #FFFED1, #DEFFE5, #EADEFF, #E3E3E3);
+    transition: transform 0.1s ease-out, opacity 0.1s ease-out, filter 0.1s ease-out;
+    transform-origin: center;
+    position: relative;
+}
+
+.bubble-particle {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #FFFED1, #DEFFE5, #EADEFF);
+    pointer-events: none;
+    transition: transform 0.05s linear, opacity 0.05s linear;
+}
