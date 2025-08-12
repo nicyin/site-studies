@@ -113,6 +113,13 @@ class BubbleAnimation {
                 } else {
                     bubble.style.opacity = '1';
                 }
+
+                // Check if bubble has reached the top
+                const bubbleRect = bubble.getBoundingClientRect();
+                if (bubbleRect.top <= 0) {
+                    this.popBubble();
+                    return;
+                }
                 
                 this.animationFrame = requestAnimationFrame(animate);
             }
