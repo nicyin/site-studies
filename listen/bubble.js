@@ -18,12 +18,26 @@ class BubbleAnimation {
     updateBubble(normalizedVolume) {
         const scale = 1 + (normalizedVolume * this.maxScale);
         const bubble = document.getElementById('bubble');
+        bubble.style.opacity = '1'; // Ensure bubble is visible
         bubble.style.transform = `scale(${scale})`;
+    }
+
+    resetBubble() {
+        const bubble = document.getElementById('bubble');
+        bubble.style.transform = 'scale(1)';
+        bubble.style.opacity = '1';
+        bubble.style.filter = 'none';
+        // Remove any remaining particles
+        const oldParticles = bubble.querySelectorAll('.bubble-particle');
+        oldParticles.forEach(p => p.remove());
     }
 
     popBubble() {
         console.log('Popping bubble!');
         const bubble = document.getElementById('bubble');
+        const popSound = document.getElementById('pop-sound');
+        popSound.currentTime = 0; // Reset the audio to start
+        popSound.play();
         
         // Create burst particles
         const numParticles = 8;
@@ -93,5 +107,5 @@ class BubbleAnimation {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    const bubbleAnim = new BubbleAnimation();
+    window.bubbleAnim = new BubbleAnimation();
 });

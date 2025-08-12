@@ -2,30 +2,40 @@
 let hasStarted = false;
 
 class AudioProcessor {
+    static audioContext = null;
+    static stream = null;
+    static hasPermission = false;
+
     constructor() {
-        this.audioContext = null;
         this.analyser = null;
         this.microphone = null;
         this.isInitialized = false;
         this.silenceTimeout = null;
-        this.SILENCE_THRESHOLD = 50; //change this back after testing
+        this.SILENCE_THRESHOLD = 50;
         this.SILENCE_DURATION = 5000; 
     }
 
     async initialize() {
         try {
-            // Create audio context
-            this.audioContext = new (window.AudioContext || window.webkitAudioContext)();
-            
-            // Get microphone access
-            const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+            // If we don't have permission yet, request it
+            if (!AudioProcessor.hasPermission) {
+                AudioProcessor.stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+                AudioProcessor.hasPermission = true;
+            }
+
+            // Create or resume audio context
+            if (!AudioProcessor.audioContext) {
+                AudioProcessor.audioContext = new (window.AudioContext || window.webkitAudioContext)();
+            } else if (AudioProcessor.audioContext.state === 'suspended') {
+                await AudioProcessor.audioContext.resume();
+            }
             
             // Create analyser node
-            this.analyser = this.audioContext.createAnalyser();
+            this.analyser = AudioProcessor.audioContext.createAnalyser();
             this.analyser.fftSize = 256;
             
             // Connect microphone to analyser
-            this.microphone = this.audioContext.createMediaStreamSource(stream);
+            this.microphone = AudioProcessor.audioContext.createMediaStreamSource(AudioProcessor.stream);
             this.microphone.connect(this.analyser);
             
             this.isInitialized = true;
@@ -44,8 +54,8 @@ class AudioProcessor {
         if (this.microphone) {
             this.microphone.disconnect();
         }
-        if (this.audioContext) {
-            this.audioContext.close();
+        if (AudioProcessor.audioContext) {
+            AudioProcessor.audioContext.suspend();
         }
         this.isInitialized = false;
     }
@@ -126,6 +136,8 @@ document.addEventListener('DOMContentLoaded', () => {
         const success = await processor.initialize();
         
         if (success) {
+            // Reset bubble state before showing
+            window.bubbleAnim.resetBubble();
             startOverlay.style.display = 'none';
             bubbleContainer.style.display = 'flex';
         } else {
