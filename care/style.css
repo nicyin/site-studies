@@ -1,13 +1,14 @@
 body {
     width: 100%;
     margin: 0;
+    background-color: #e4e4e4;
 }
 
 #tools {
-    border-radius: 40px;
-    border: 0px solid #000;
-    background-color: rgba(255, 235, 235, 0.2);
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    border: 3px solid #b3b3b3;
+    background-color: #ececec;
+    border-style: inset;
+    box-shadow: 4px 4px 0px rgba(0, 0, 0, 1);
     width: fit-content;
     position: absolute;
     top: 50%;
@@ -26,7 +27,7 @@ body {
 
 .tool:hover {
     scale: 1.2;
-    cursor: pointer;
+    cursor: crosshair;
 }
 
 .tool:active {
@@ -40,5 +41,5 @@ body {
     transform: translate(-50%, -50%);
     font-size: 1em;
     text-align: center;
-    text-shadow: 0 0 5px rgba(158, 158, 158, 0.8);
+    text-shadow: 0 0 3px rgba(172, 255, 109, 0.9);
 }
