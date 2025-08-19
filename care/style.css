@@ -108,3 +108,44 @@ body {
     width: 75%;
     margin: 0 auto;
 }*/
+
+/* Mobile styles - for screens 768px and smaller */
+@media screen and (max-width: 768px) {
+    .tool {
+        padding: 10px;  /* Larger touch target */
+        min-width: 44px;
+        min-height: 44px;
+        touch-action: manipulation;
+    }
+
+    .ui-draggable-dragging {
+        touch-action: none;
+    }
+
+    /* Remove hover effects, replace with touch feedback */
+    .effect:hover, .adding:hover {
+        transform: none;
+    }
+
+    .tool:active {
+        transform: scale(0.95);
+        background-color: rgba(0,0,0,0.1);
+    }
+
+    /* Adjust tool container for mobile */
+    #tools {
+        left: 20%;  /* Move it more towards center */
+        padding: 15px;
+    }
+
+    /* Make grow area wider on mobile */
+    #grow-area {
+        width: 80%;
+    }
+
+    /* Larger text for mobile */
+    #instructions {
+        font-size: 1.1em;
+        margin: 15px;
+    }
+}
