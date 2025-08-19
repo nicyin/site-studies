@@ -134,8 +134,8 @@ body {
 
     /* Adjust tool container for mobile */
     #tools {
-        left: 20%;  /* Move it more towards center */
-        padding: 15px;
+        left: 10%;  /* Move it more towards center */
+        padding: 5px;
     }
 
     /* Make grow area wider on mobile */
