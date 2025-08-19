@@ -10,6 +10,8 @@
 
         <link rel="stylesheet" href="care/style.css">
         <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+        <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
+        <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
         <script src="care/script.js"></script>
     </head>
 
@@ -17,30 +19,25 @@
 
         <div id="tools">
             <!-- replace emojis with pixel icons -->
-            <div class="tool" id="sun"><img src="care/tools/sun.png" alt="sun"></div>
-            <div class="tool" id="water"><img src="care/tools/water.png" alt="water"></div>
-            <div class="tool" id="heart"><img src="care/tools/heart.png" alt="heart"></div>
-            <div class="tool" id="cloud"><img src="care/tools/cloud.png" alt="shade"></div>
-            <div class="tool" id="leaf"><img src="care/tools/leaf.png" alt="plant"></div>
+             Tools:
+            <div class="tool effect" id="water"><img src="care/tools/water.png" alt="water"></div>
+            <div class="tool effect" id="sun"><img src="care/tools/sun.png" alt="sun"></div>
+            <div class="tool effect" id="heart"><img src="care/tools/heart.png" alt="heart"></div>
+            <div class="tool adding" id="cloud"><img src="care/tools/cloud.png" alt="cloud"></div>
+            <div class="tool adding" id="leaf"><img src="care/tools/leaf.png" alt="leaf"></div>
         </div>
 
         <div id="code">
             <!-- where code REPRESENTATION appears -->
-        </div>
+             <div id="grow-area">
+                <div id="instructions">Grow this page by using the tools in the tool bar</div>
+                <div class="grow" id="cloud"><img src="care/tools/cloud.png" alt="shade"></div>
+                <div class="grow" id="leaf"><img src="care/tools/leaf.png" alt="plant"></div>
+             </div>
 
-        <div id="real-page">
-            <!-- actual rendered elements -->
-            <h1>Welcome to my site!</h1>
-            <div id="about">
-                This is a website you have to <em>"care for"</em> in order to use. Try using the tools in the toolbar and see what happens.
-            </div>
-            <div id="pix">
-                <img src="care/images/picmix1.gif">
-                <img src="care/images/picmix2.gif">
-                <img src="care/images/picmix3.gif">
-                <img src="care/images/picmix4.gif">
-                <img src="care/images/picmix5.gif">
-            </div>
+             <div id="structure">
+                <!-- where the elements move -->
+             </div>
         </div>
         
     </body>
