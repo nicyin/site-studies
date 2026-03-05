@@ -101,3 +101,7 @@ h3 a, h3 a:visited {
 h3 a:hover {
     color: #0000ff;
 }
+
+.unfinished {
+    opacity: .3;
+}
