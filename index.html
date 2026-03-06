@@ -11,6 +11,11 @@
         <link rel="stylesheet" href="style.css">
         <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
         <script src="script.js"></script>
+        <script>
+            if (window.location.hostname === 'www.shift-cmd.com') {
+              document.write('<base href="/site-studies/">');
+            }
+          </script>
     </head>
 
     <body>
