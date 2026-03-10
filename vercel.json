@@ -1,8 +1,3 @@
 {
-  "cleanUrls": true,
-  "rewrites": [
-    { "source": "/site-studies", "destination": "https://site-studies.vercel.app/" },
-    { "source": "/site-studies/", "destination": "https://site-studies.vercel.app/" },
-    { "source": "/site-studies/:path*", "destination": "https://site-studies.vercel.app/:path*" }
-  ]
+  "cleanUrls": true
 }
