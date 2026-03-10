@@ -83,10 +83,11 @@ body.state-together {
 @media (max-width: 768px) {
     #enter:disabled,
     #enter:enabled {
-        font-size: 4em;
+        font-size: 2em;
         width: 80vw;
         padding: 20px 10px;
         display: block;
         margin: 0 auto;
+        border-radius: 60px;
     }
 }
