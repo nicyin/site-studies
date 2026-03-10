@@ -80,6 +80,11 @@ body.state-together {
     transform: scale(1.05);
 }
 
+#enter:enabled:active {
+    transform: scale(1);
+    background-color: #d9b23e;
+}
+
 @media (max-width: 768px) {
 
     #alone, #together, #hangout, #tea {
