@@ -81,6 +81,11 @@ body.state-together {
 }
 
 @media (max-width: 768px) {
+
+    #alone, #together, #hangout, #tea {
+        font-size: 1em;
+    }
+
     #enter:disabled,
     #enter:enabled {
         font-size: 2em;
@@ -89,5 +94,9 @@ body.state-together {
         display: block;
         margin: 0 auto;
         border-radius: 60px;
+    }
+
+    .tea {
+        font-size: 5em;
     }
 }
