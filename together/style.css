@@ -1,3 +1,14 @@
+body.state-alone {
+    background: #000;
+    color: #fff;
+}
+
+body.state-together {
+    background: #fff;
+    color: #000;
+}
+
+
 #online-counter {
     position: fixed;
     top: 20px;
@@ -6,9 +17,10 @@
     color: #000000;
     padding: 10px 15px;
     border: 1px solid #000000;
-    font-family: 'Sono', monospace;
+    font-family: 'Arial Narrow', 'Arial', sans-serif;
     font-weight: 300;
     font-size: 0.8em;
+    display: none;
 }
 
 #alone, #together, #hangout {
@@ -16,13 +28,12 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    font-size: 1em;
-    font-family: 'Sono', monospace;
+    font-size: 2em;
+    font-family: 'Arial Narrow', 'Arial', sans-serif;
     font-weight: 300;
     text-align: center;
 }
 
-/* Set initial states */
 #together {
     display: none;
 }
@@ -35,26 +46,31 @@
     font-size: 2em;
 }
 
+.tea {
+    position: fixed;
+    font-size: 10em;
+}
+
 #enter:disabled {
-    border-radius: 50px;
+    border-radius: 120px;
     padding: 10px 20px;
     opacity: 0.5;
     background-color: #cccccc;
     cursor: not-allowed;
     font-family: 'Sono', monospace;
     font-weight: 300;
-    font-size: 2em;
+    font-size: 10em;
     border: none;
 }
 
 #enter:enabled {
-    border-radius: 50px;
+    border-radius: 120px;
     padding: 10px 20px;
     background-color: #f7cd4e;
     color: #000000;
     font-family: 'Sono', monospace;
     font-weight: 300;
-    font-size: 2em;
+    font-size: 10em;
     border: none;
     cursor: pointer;
     transition: all 0.3s ease;
@@ -62,4 +78,15 @@
 
 #enter:enabled:hover {
     transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+    #enter:disabled,
+    #enter:enabled {
+        font-size: 4em;
+        width: 80vw;
+        padding: 20px 10px;
+        display: block;
+        margin: 0 auto;
+    }
 }

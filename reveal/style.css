@@ -40,13 +40,11 @@ body {
     background: transparent;
 }
 
-/* Subtle preview while actively selecting */
 .word.preview {
     color: rgba(0, 0, 0, 0.2);
     transition: color 0.1s ease;
 }
 
-/* Permanently revealed words */
 .word.revealed {
     color: #000;
     transition: color 0.2s ease;
