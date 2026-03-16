@@ -32,7 +32,6 @@ $(document).ready(function() {
         isSelecting = true;
     });
 
-    // Show a faint preview of what will be revealed while dragging
     document.addEventListener('selectionchange', function() {
         if (!isSelecting) return;
 
@@ -49,7 +48,6 @@ $(document).ready(function() {
         }
     });
 
-    // On release: permanently reveal all instances of each selected word
     $(document).on('mouseup touchend', function() {
         if (!isSelecting) return;
         isSelecting = false;

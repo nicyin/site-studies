@@ -1,4 +1,3 @@
-// Shared state
 let hasStarted = false;
 
 class AudioProcessor {
@@ -17,30 +16,27 @@ class AudioProcessor {
 
     async initialize() {
         try {
-            // If we don't have permission yet, request it
+            // request permission
             if (!AudioProcessor.hasPermission) {
                 AudioProcessor.stream = await navigator.mediaDevices.getUserMedia({ audio: true });
                 AudioProcessor.hasPermission = true;
             }
 
-            // Create or resume audio context
+            // create/resume audio
             if (!AudioProcessor.audioContext) {
                 AudioProcessor.audioContext = new (window.AudioContext || window.webkitAudioContext)();
             } else if (AudioProcessor.audioContext.state === 'suspended') {
                 await AudioProcessor.audioContext.resume();
             }
-            
-            // Create analyser node
+
             this.analyser = AudioProcessor.audioContext.createAnalyser();
             this.analyser.fftSize = 256;
-            
-            // Connect microphone to analyser
+
             this.microphone = AudioProcessor.audioContext.createMediaStreamSource(AudioProcessor.stream);
             this.microphone.connect(this.analyser);
             
             this.isInitialized = true;
-            
-            // Start monitoring volume
+
             this.monitorVolume();
             
             return true;
@@ -67,24 +63,21 @@ class AudioProcessor {
         let animationFrame;
         
         const checkVolume = () => {
-            if (!this.isInitialized) return;  // Stop if we're no longer initialized
+            if (!this.isInitialized) return; 
             
             this.analyser.getByteFrequencyData(dataArray);
-            
-            // Calculate average volume
+
             const average = dataArray.reduce((a, b) => a + b) / dataArray.length;
             console.log('Audio value:', Math.round(average));
-            
-            // Dispatch custom event with volume data
+
             const event = new CustomEvent('volumeChange', {
                 detail: { 
                     volume: average,
-                    normalized: average / 255  // Normalized value between 0 and 1
+                    normalized: average / 255 
                 }
             });
             window.dispatchEvent(event);
 
-            // Check for silence
             if (average < this.SILENCE_THRESHOLD) {
                 if (!this.silenceTimeout) {
                     this.silenceTimeout = setTimeout(() => {
@@ -99,7 +92,6 @@ class AudioProcessor {
                 }
             }
 
-            // Continue monitoring
             animationFrame = requestAnimationFrame(checkVolume);
         };
 
@@ -107,7 +99,6 @@ class AudioProcessor {
     }
 }
 
-// Initialize on any click/tap
 document.addEventListener('DOMContentLoaded', () => {
     const startOverlay = document.getElementById('start-overlay');
     const bubbleContainer = document.getElementById('bubble-container');
@@ -122,7 +113,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (success) {
             startOverlay.style.display = 'none';
             bubbleContainer.style.display = 'flex';
-            // Create initial bubble
+            
             window.bubbleAnim.createBubble();
         } else {
             alert('Could not access microphone. Please ensure you have given permission and reload the page.');

@@ -1,5 +1,4 @@
 $(function() {
-    // Make tools draggable
     $('.tool').draggable({
         helper: 'clone',
         revert: false,
@@ -7,11 +6,9 @@ $(function() {
         cursor: 'grabbing'
     });
 
-    // Define drop handler function once
     function handleDrop(event, ui) {
         const tool = ui.draggable.attr('id');
         const target = $(this).attr('id');
-        console.log(`${tool} was dropped on ${target}`);
 
         const currentState = $(this).data('state') || 'icon';
 
@@ -46,7 +43,7 @@ $(function() {
                     case 'grown':
                         if (!$(this).hasClass('populated')) {
                             if(target === 'cloud'){
-                                // EDIT ARRAY HERE
+
                                 const headings = [
                                     'About Me',
                                     "What I'm Listening To Right Now", 
@@ -59,7 +56,7 @@ $(function() {
                                 $(this).html(randomHeading);
                             } else if(target === 'leaf') {
                                 const contents = [
-                                    // EDIT ARRAY HERE
+
                                     'Hello and welcome to my site!',
                                     '<img src="care/images/picmix1.gif">',
                                     "This is where I'll post cool stuff I find online, pix of my friends, and random thoughts",
@@ -119,11 +116,9 @@ $(function() {
         }
     }
 
-    // Add click handler for cloud and leaf tools
     $('.tool').click(function() {
         const toolId = $(this).attr('id');
             
-            // Only handle cloud and leaf clicks
         if (toolId === 'cloud' || toolId === 'leaf') {
             const newElement = $('<div>', {
                 class: 'grow',
@@ -135,7 +130,6 @@ $(function() {
                 })
             );
                 
-            // Add the new element and make it droppable
             newElement.appendTo('#grow-area').droppable({
                 accept: '.tool',
                 hoverClass: 'drop-hover',
@@ -144,7 +138,6 @@ $(function() {
         }
     });
 
-    // Make grow elements droppable
     $('.grow').droppable({
         accept: '.tool',
         hoverClass: 'drop-hover',
