@@ -22,7 +22,7 @@ h3 {
 }
 
 .star {
-    font-size: 4em;
+    font-size: 2em;
     line-height: 1;
     text-align: center;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, Arial, Helvetica, sans-serif;
@@ -38,7 +38,7 @@ h3 {
 }
 
 .prompt {
-    font-size: 1.5em
+    font-size: 1em
 }
 
 .prompt a {
@@ -57,7 +57,7 @@ h3 {
 }
 
 #table-of-contents tr {
-    border-bottom: 1px solid rgb(216, 216, 216);
+    border-bottom: 0px solid rgb(216, 216, 216);
     padding: 2px;
 }
 
